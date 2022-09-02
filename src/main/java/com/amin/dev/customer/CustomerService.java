@@ -2,16 +2,17 @@ package com.amin.dev.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Component
+@Service
 public class CustomerService {
 
     private final CustomerRepo repository;
 
-    @Autowired
     public CustomerService(CustomerRepo repository) {
         this.repository = repository;
     }
