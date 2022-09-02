@@ -1,10 +1,9 @@
 package com.amin.dev.customer;
 
-import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import java.util.Arrays;
+import java.time.Clock;
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,10 +13,11 @@ public class CustomerRepository implements CustomerRepo{
     public List<Customer> getCustomers() {
         // todo - connect to real
         //  Database
+        Clock cl = Clock.systemUTC();
         return Collections.singletonList(
                 new Customer(1L,
                         "ToDo. " +
-                                "Implement Real DB")
+                                "Implement Real DB", "myPasswordHello", LocalDate.now(cl))
         );
     }
 }
