@@ -1,4 +1,4 @@
-package com.amin.dev;
+package com.amin.dev.customer;
 
 public class Customer {
 
@@ -16,5 +16,13 @@ public class Customer {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
