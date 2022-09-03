@@ -15,10 +15,10 @@ public class CustomerFakeRepository implements CustomerRepo{
                 new Customer(1L,
                         "JohnnyBoy",
                         "jb2908",
-                        LocalDate.now(cl)),
+                        "testmail@gmail.com", LocalDate.now(cl)),
                 new Customer(2L,
                         "Charlie",
-                        "cl2908", LocalDate.now(cl))
+                        "cl2908", "testmail@gmail.com", LocalDate.now(cl))
         );
     }
 }

@@ -3,6 +3,7 @@ package com.amin.dev.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
@@ -32,7 +33,7 @@ public class CustomerControllerV2 {
     }
 
     @PostMapping
-    void createCustomer(@RequestBody Customer customer) {
+    void createCustomer(@Valid @RequestBody Customer customer) {
         System.out.println("Creating " +
                 "request - " +
                 "new customer ... " + customer);

@@ -17,7 +17,7 @@ public class CustomerRepository implements CustomerRepo{
         return Collections.singletonList(
                 new Customer(1L,
                         "ToDo. " +
-                                "Implement Real DB", "myPasswordHello", LocalDate.now(cl))
+                                "Implement Real DB", "myPasswordHello", "testmail@gmail.com", LocalDate.now(cl))
         );
     }
 }
