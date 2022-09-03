@@ -3,24 +3,32 @@ package com.amin.dev.customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
 
 @RestController
-@RequestMapping(path = "api/v1" +
-        "/customer")
-@Deprecated
-public class CustomerController {
+@RequestMapping(path = "api/v2" +
+        "/customers")
+public class CustomerControllerV2 {
 
     private final CustomerService service;
 
     @Autowired
-    public CustomerController(CustomerService service) {
+    public CustomerControllerV2(CustomerService service) {
         this.service = service;
     }
 
-    @GetMapping(value = "all")
-    List<Customer> getCustomer() {
+    @GetMapping
+    List<Customer> getCustomers() {
         return service.getCustomers();
+    }
+
+    @GetMapping(path =
+            "{customerId}")
+    Customer getCustomer(@PathVariable("customerId") Long customerId) {
+        return service.getCustomer(customerId);
     }
 
     @PostMapping

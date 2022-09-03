@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 @Service
 public class CustomerService {
@@ -21,5 +22,13 @@ public class CustomerService {
         List<Customer> customers =
                 repository.getCustomers();
         return customers;
+    }
+
+    Customer getCustomer(final Long idCustomer) {
+        Predicate<Customer> customerPredicate = customer -> customer.getId() == idCustomer;
+        return getCustomers().stream()
+                .filter(customerPredicate)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Customer Not Found"));
     }
 }
