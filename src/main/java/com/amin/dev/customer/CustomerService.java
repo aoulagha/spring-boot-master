@@ -1,5 +1,6 @@
 package com.amin.dev.customer;
 
+import com.amin.dev.customer.exception.CustomerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.DependsOn;
@@ -29,6 +30,9 @@ public class CustomerService {
         return getCustomers().stream()
                 .filter(customerPredicate)
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("Customer Not Found"));
+                .orElseThrow(() ->
+                        new CustomerNotFoundException(
+                                "Customer with Id " + idCustomer + " Not Found...")
+                );
     }
 }

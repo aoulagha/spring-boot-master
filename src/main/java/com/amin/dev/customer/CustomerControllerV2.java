@@ -1,5 +1,6 @@
 package com.amin.dev.customer;
 
+import com.amin.dev.customer.exception.ApiRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,14 @@ public class CustomerControllerV2 {
             "{customerId}")
     Customer getCustomer(@PathVariable("customerId") Long customerId) {
         return service.getCustomer(customerId);
+    }
+
+    @GetMapping(path =
+            "{customerId}/exception")
+    void getCustomerException(@PathVariable("customerId") Long customerId) {
+        throw new ApiRequestException(
+                "ApiRequestExceptionFor " + customerId
+        );
     }
 
     @PostMapping
