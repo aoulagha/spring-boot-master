@@ -27,7 +27,9 @@ public class CustomerConfiguration {
     CustomerRepo customerRepo() {
         System.out.println("customer " +
                 "Fake repo used " + useFakeCustomerRepo);
-        return useFakeCustomerRepo ?
-                new CustomerFakeRepository() : new CustomerRepository();
+        return new CustomerFakeRepository();
+        //return useFakeCustomerRepo ?
+        //        new
+        //        CustomerFakeRepository() : new CustomerRepository();
     }
 }
